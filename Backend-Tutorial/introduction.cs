@@ -197,7 +197,7 @@ namespace OutParameters
     The out parameter must be set to a value before the method ends
     When calling the method, don’t forget to use the out keyword as well:
     */
-    
+
         string message = "garrrr";
         Yell(message, out bool flag);
         // returns "GARRRR" and flag is true
@@ -216,3 +216,148 @@ namespace OutParameters
 
 
 
+
+// There are other methods that accept methods as arguments, which you will encounter later on. For now, you need to understand that we can use a method’s name like a variable, e.g. IsEven is a variable representing the method IsEven(). We pass this variable to another method, like Array.Exists(), which will probably invoke that method-argument at least once within its own body.
+
+
+/*
+Array.Find() is another method that takes an array and a method as arguments. Array.Find() calls the method on each element of the array and returns the first element for which the method returns true.
+
+An array adjectives and method IsLong() are defined for you. Call Array.Find() with these two arguments to find the first element in adjectives that is “long”.
+
+Store the returned string in a variable named firstLongAdjective.
+*/
+
+namespace AlternateExpressions
+{
+  class Program
+  {
+  	// Method to be used as second argument
+   	public static bool IsLong(string word)
+    {
+      return word.Length > 8;
+    }
+      
+    static void Main(string[] args)
+    {
+      // Array to be used as first argument
+      string[] adjectives = {"rocky", "mountainous", "cosmic", "extraterrestrial"};
+     
+      // Call Array.Find() and 
+      // Pass in the array and method as arguments
+      string firstLongAdjective = Array.Find(adjectives, IsLong);
+      
+      Console.WriteLine($"The first long word is: {firstLongAdjective}.");
+    }
+  }
+}
+
+
+
+bool hasEvenNumber = Array.Exists(numbers, (int num) => num % 2 == 0 );
+/*
+What makes a lambda expression unique is that it is an anonymous method: it has no name.
+
+Generally lambda expressions with one expression (like the above example) take this form. They use the fat arrow, no curly braces, and no semicolon (;):
+
+(input-parameters) => expression
+*/
+
+//Here’s an example of the second structure, which checks if any element in numbers is a multiple of 12 and greater than 20:
+
+bool hasBigDozen = Array.Exists(numbers, (int num) => {
+  bool isDozenMultiple = num % 12 == 0;
+  bool greaterThan20 = num > 20;
+  return isDozenMultiple && greaterThan20;
+});
+
+
+Shorter Lambda Expressions
+Time to put on our detective caps: using deductive reasoning, we can make our lambda expression even shorter. Here’s what we have to start:
+
+bool hasEvenNumbers = Array.Exists(numbers, (int num) => num % 2 == 0 );
+The type of num is int. It’s great to be explicit like this to avoid errors, but some developers wouldn’t include int. To them, it’s obvious! Here’s their reasoning:
+
+The modulo operator (%) is only used with numbers, so num must be a number
+The result of the operation num % 2 is compared to the integer 0. We can only compare similar types, so num must also be an integer!
+Therefore, we can remove int without causing any errors:
+
+bool hasEvenNumbers = Array.Exists(numbers, (num) => num % 2 == 0 );
+When there is just one parameter in a lambda expression, we don’t need the parentheses around the parameter either:
+
+bool hasEvenNumbers = Array.Exists(numbers, num => num % 2 == 0 );
+
+
+/*
+
+Do...While Loop
+Similar to the while loop, a do...while loop will continue running until a stopping condition is met. One key difference is that no matter what, a do...while loop will always run once.
+
+For Each Loop
+There’s one more way to give looping instructions to a computer. We define a sequence of values and tell the computer to repeat the instructions for each item in the sequence.
+
+foreach (type element in sequence)
+{
+  statement;
+}
+The foreach loop is used to iterate over collections, such as an array.
+
+Here’s an example array of notes:
+
+string[] melody = { "a", "b", "c", "c", "b" };
+and the loop would look like:
+
+foreach (string note in melody)
+{
+  PlayMusic(note);
+}
+
+
+CONTINUE
+The continue keyword is used to bypass portions of code. It will ignore whatever comes after it in the loop and then will go back to the top and start the loop again.
+
+int bats = 10;
+ 
+for (int i = 0; i <= 10; i++)
+{
+  if (i < 9)
+  {  
+    continue;
+  }
+  // this will be skipped until i is no longer less than 9
+  Console.WriteLine(i);
+}
+Here, the program starts in the for loop, then hits the if statement. Since there is a continue in the if statement, it will bypass the Console.WriteLine() statement until the condition in the if statement is no longer true. So while the loop starts at 0, nothing will print to the console until i is equal to 9.
+
+Nested Loops
+
+You should only use return if you need to exit a method, because it will break out of all loops. If you only want to break out of one loop and not exit a method, use break.
+
+*/
+
+
+In C#, arrays are a collection of values that all share the same data type. You could have an array of type string that contains a list of your favorite songs, or an array of type int that stores a collection of user ids.
+
+Similar to defining a variable for one piece of data, when we define a variable to hold an array we also have to specify the type:
+
+Like a variable, we can define and initialize an array at the same time, by specifying the values we want to store in it:
+
+int[] plantHeights = { 3, 4, 6 };
+
+To declare and initialize an array at the same time, after the array declaration we use the equal sign to denote we’re storing a value to the array, then write out the numbers we’re putting in the array, separated by commas , and enclosed in curly braces {}.
+
+You may also see arrays defined and initialized using a new keyword:
+
+int[] plantHeights = new int[] { 3, 4, 6 };
+The new keyword signifies that we are instantiating a new array from the array class. We’ll cover classes and instantiation in another lesson, but for now you can just think of it as another way to create an array.
+
+In fact, if you decide to define an array and then initialize it later (rather in one line like above) you must use the new keyword:
+
+// Initial declaration
+int[] plantHeights;
+ 
+// This works
+plantHeights = new int[] { 3, 4, 6 };   
+ 
+// This will cause an error
+// plantHeights = { 3, 4, 6 }; 
