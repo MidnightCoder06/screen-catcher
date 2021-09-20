@@ -1,17 +1,22 @@
+/*
 References of the Same Type
-Classes are reference types. That means that when we create a new instance of a class and store it in a variable, the variable is a reference to the object.
+Classes are reference types. That means that when we create a new instance of a class and store it in a variable, 
+the variable is a reference to the object.
 
 Let’s see what’s happening behind the scenes. When this code is run:
 
 Dissertation diss1 = new Dissertation();
-A new Dissertation instance is constructed and stored in the computer’s memory. You can imagine a slot in your computer holding the instance’s type, property values, etc. diss1 is a reference to that location in memory.
+A new Dissertation instance is constructed and stored in the computer’s memory. 
+You can imagine a slot in your computer holding the instance’s type, property values, etc. 
+diss1 is a reference to that location in memory.
 
 diss1 is not the actual object, it is a reference to the object. Thus an object can have multiple references:
 
 Dissertation diss1 = new Dissertation();
 Dissertation diss2 = diss1;
 
-Now there are two references to the same location in memory: we can say that diss1 and diss2 refer to the same object. If changes are made to that object, then they will be reflected in both references to it:
+Now there are two references to the same location in memory: we can say that diss1 and diss2 refer to the same object. 
+If changes are made to that object, then they will be reflected in both references to it:
 
 Dissertation diss1 = new Dissertation();
 Dissertation diss2 = diss1;
@@ -23,18 +28,20 @@ Console.WriteLine(diss2.CurrentPage);
 The middle two lines of this code are setting the CurrentPage property of the same object (first setting it to 0, then 16)
 The last two lines will print the same value, 16
 You can imagine references like directions to a house: they tell you where to find the house, but they are not the house itself!
-
+*/
 
 ////////
 
-
+/*
 References vs. Values
-To better grasp the idea of reference types, let’s look at the other kind of type: value types. While reference-type variables refer to a place in memory, value-type variables hold the actual data.
+To better grasp the idea of reference types, let’s look at the other kind of type: value types. 
+While reference-type variables refer to a place in memory, value-type variables hold the actual data.
 
 int is a value type, so the variable num holds the value 6:
 
 int num = 6;
-Reference types, on the other hand, refer to a location in memory. Every class is a reference type, so the variable diss refers to a location in memory that has the Dissertation object:
+Reference types, on the other hand, refer to a location in memory. 
+Every class is a reference type, so the variable diss refers to a location in memory that has the Dissertation object:
 
 Dissertation diss = new Dissertation(50);
 Every “primitive” data type is a value type, including:
@@ -43,15 +50,18 @@ int
 double
 bool
 char
-Revisiting our metaphor: a reference is like directions to a house, which “points” to a house. It isn’t the actual house. A value type is the house itself!
+Revisiting our metaphor: a reference is like directions to a house, which “points” to a house. 
+It isn’t the actual house. A value type is the house itself!
 
 You might have noticed that string is missing here. It works a bit differently, so it will be covered in a later lesson.
-
+*/
 
 /////
 
+/*
 Reference vs. Value Comparison
-When we compare value types with ==, the C# compiler performs a value comparison. For example, this prints true because the value 6 is equal to the value 6:
+When we compare value types with ==, the C# compiler performs a value comparison. 
+For example, this prints true because the value 6 is equal to the value 6:
 
 int int1 = 6;
 int int2 = 6;
@@ -59,16 +69,22 @@ Console.WriteLine(int1 == int2);
 // Output: true
 int1 and int2 are the actual value 6. When we compare the value 6 with 6, they’re the same!
 
-When we compare reference types with ==, the C# compiler performs a referential comparison, which means it checks if two variables refer to the same memory location. For example, this prints false because d1 and d2 refer to two different locations in memory (even though they contain objects with the same values):
+When we compare reference types with ==, the C# compiler performs a referential comparison, 
+which means it checks if two variables refer to the same memory location. 
+For example, this prints false because d1 and d2 refer to two different locations in memory 
+(even though they contain objects with the same values):
 
 Dissertation d1 = new Dissertation(50);
 Dissertation d2 = new Dissertation(50);
 Console.WriteLine(d1 == d2);
 // Output: false
-We constructed two different Dissertation objects which happened to have the same values. Each reference (d1 and d2) point to different objects, so they are not equal.
+We constructed two different Dissertation objects which happened to have the same values. 
+Each reference (d1 and d2) point to different objects, so they are not equal.
+*/
 
 /////
 
+/*
 Polymorphism
 We just saw how useful it is to have the same interface for multiple data types. This is a common concept across many programming languages, and it’s called polymorphism.
 
@@ -113,21 +129,14 @@ Therefore, C# support polymorphism!
 You’ll never have to write polymorphism in your code, but this vocabulary is essential to communicating with other developers!
 
 So remember: polymorphism is the ability in programming to present the same interface for differing data types.
+*/
+
+////
 
 
 ////
 
-
-ToDo: 
-
-look into:
-
-upcasting
-downcasting 
-as and is operators.
-
-////
-
+/*
 Null and Unassigned References
 So far we’ve seen:
 
@@ -172,9 +181,11 @@ namespace LearnReferences
     }
   }
 }
+*/
 
 ///////
 
+/*
 Introduction to Object
 In C# there is one type of reference that can be used for all objects. It’s aptly called Object.
 
@@ -226,10 +237,11 @@ Console.WriteLine(s);
 Object o2 = o1;
 // Equals true
 bool b = o1.Equals(o2);
-
+*/
 
 ///////
 
+/*
 Overriding Object Members
 The Equals() and ToString() methods in Object are virtual, so they can be overridden.
 
@@ -237,8 +249,6 @@ For example, we can override ToString() in the Diary class:
 
 class Diary
 {
-  /* other members omitted */
- 
   public override string ToString()
   {
     return $"This Diary is currently on page {CurrentPage}."; 
@@ -249,10 +259,11 @@ Now any Diary instance will use this version of the method:
 Diary dy = new Diary(7);
 Console.WriteLine(dy.ToString());
 // Output: "This Diary is currently on page 7."
-
+*/
 
 /////
 
+/*
 Object in Plain Sight
 At the very beginning of your C# journey, you learned about Console.WriteLine(). You used this tool with nearly every type, from int and bool to Dissertation and Diary:
 
@@ -266,14 +277,12 @@ Under the hood, Console.WriteLine() uses ToString(), which is defined in Object.
 
 Console.WriteLine(b);
 Console.WriteLine(b.ToString());
-
-
-
+*/
 
 ///////
 
 
-
+/*
 Re-introduction to Strings
 Previous lessons have stated that all classes are reference types and all “primitive” values are value types.
 
@@ -324,7 +333,6 @@ bool b = (s == t);
 Typically we want to compare strings by value, so this makes it easier to write in code and it also gives the C# compiler flexibility in how it implements the program (it doesn’t have to worry about where the actual string value is stored).
 
 
-
 namespace StringTheException
 {
   class Program
@@ -364,3 +372,4 @@ an empty string signifies a piece of text with zero characters. This is often us
 The Microsoft Programming Guide suggests using String.Empty or "" instead of null to avoid NullReferenceException errors.
 
 We can check for null OR empty strings using the static String method IsNullOrEmpty(). It’s explained in more detail in the documentation.
+*/
