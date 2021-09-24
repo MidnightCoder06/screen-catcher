@@ -1,8 +1,16 @@
 import react from 'react';
 
 function BrowseButton() {
+
+    function browseLocalFiles(e) {
+        e.preventDefault();
+        console.log('search a local file to upload');
+    }
+
     return (
-        <p> click to browse local files</p>
+        <button onClick={browseLocalFiles}> 
+            click to browse local files
+        </button>
     );
 }
 
