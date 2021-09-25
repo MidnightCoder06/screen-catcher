@@ -6,7 +6,22 @@
 # The drop event fires when an item drops on a valid drop target, i.e dragged over and released.
 
 
+# Managing State 
 
+## we have to consider how we intend to keep track of dropped files.
+## We will be keeping track of the following states during the drag-and-drop operation:
+
+## dropDepth
+### This will be an integer. We’ll use it to keep track of how many levels deep we are in the drop zone. 
+
+## inDropZone
+### This will be a boolean. We will use this to keep track of whether we’re inside the drop zone or not.
+
+## FileList
+### This will be a list. We’ll use it to keep track of files that have been dropped into the drop zone.
+
+
+TODO: remove drop-depth (no value in it)
 
 
 
