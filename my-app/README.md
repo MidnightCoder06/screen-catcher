@@ -1,35 +1,4 @@
-# The dragenter, dragleave, dragover, And drop Events
-
-## The dragenter event fires when a dragged item enters a valid drop target.
-## The dragleave event fires when a dragged item leaves a valid drop target.
-## The dragover event fires when a dragged item is being dragged over a valid drop target. (It fires every few hundred milliseconds.)
-# The drop event fires when an item drops on a valid drop target, i.e dragged over and released.
-
-
-# Managing State 
-
-## we have to consider how we intend to keep track of dropped files.
-## We will be keeping track of the following states during the drag-and-drop operation:
-
-## dropDepth
-### This will be an integer. We’ll use it to keep track of how many levels deep we are in the drop zone. 
-
-## inDropZone
-### This will be a boolean. We will use this to keep track of whether we’re inside the drop zone or not.
-
-## FileList
-### This will be a list. We’ll use it to keep track of files that have been dropped into the drop zone.
-
-
-
-#################
-
-
-# Getting Started with Create React App
-
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
-
-## Available Scripts
+# Available Scripts
 
 In the project directory, you can run:
 
@@ -66,23 +35,9 @@ Instead, it will copy all the configuration files and the transitive dependencie
 
 You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
 
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
 ### Analyzing the Bundle Size
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
 
 ### Advanced Configuration
 
@@ -95,3 +50,23 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 ### `npm run build` fails to minify
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+
+
+# The dragenter, dragleave, dragover, And drop Events
+
+## The dragenter event fires when a dragged item enters a valid drop target.
+## The dragleave event fires when a dragged item leaves a valid drop target.
+## The dragover event fires when a dragged item is being dragged over a valid drop target. (It fires every few hundred milliseconds.)
+## The drop event fires when an item drops on a valid drop target, i.e dragged over and released.
+
+
+# Managing State 
+
+## we have to consider how we intend to keep track of dropped files.
+## We will be keeping track of the following states during the drag-and-drop operation:
+
+## inDropZone
+### This will be a boolean. We will use this to keep track of whether we’re inside the drop zone or not.
+
+## FileList
+### This will be a list. We’ll use it to keep track of files that have been dropped into the drop zone.
