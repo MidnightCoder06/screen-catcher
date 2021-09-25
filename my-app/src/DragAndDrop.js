@@ -1,4 +1,10 @@
 // handle file uploads in React using the HTML drag-and-drop API. 
+
+/* readings:
+https://www.smashingmagazine.com/2020/02/html-drag-drop-api-react/
+https://blog.logrocket.com/react-drag-and-drop/
+*/
+
 import React from 'react';
 import './DragAndDrop.css';
 
