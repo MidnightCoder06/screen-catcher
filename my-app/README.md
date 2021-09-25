@@ -21,10 +21,6 @@
 ### This will be a list. We’ll use it to keep track of files that have been dropped into the drop zone.
 
 
-TODO: remove drop-depth (no value in it)
-
-
-
 
 #################
 
