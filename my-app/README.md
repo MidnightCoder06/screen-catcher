@@ -52,6 +52,10 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
 
 
+# Drag and Drop
+
+## handle file uploads in React using the HTML drag-and-drop API instead of ReactDnD & React dropzone 3rd party packages
+
 # The dragenter, dragleave, dragover, And drop Events
 
 ## The dragenter event fires when a dragged item enters a valid drop target.
@@ -70,3 +74,12 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/t
 
 ## FileList
 ### This will be a list. We’ll use it to keep track of files that have been dropped into the drop zone.
+
+
+# File Uploads
+
+## used the fetch API together with the FormData native Javascript API to post the file to the fileserver.
+## https://developer.mozilla.org/en-US/docs/Web/API/FormData
+## FormData is a special type of object which is not stringifyable can cannot just be printed out using console.log. 
+## https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API
+## native fetch over axios because I don't want to reduce the number of 3rd party libraries for this project

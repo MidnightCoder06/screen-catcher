@@ -23,6 +23,7 @@ function App() {
     The update is performed by invoking the dispatch function returned by useReducer.
   */
 
+  // TODO: explore if this statement management code should be put into the drag and drop component
   const reducer = (state, action) => {
     switch (action.type) {
         case 'SET_IN_DROP_ZONE':
