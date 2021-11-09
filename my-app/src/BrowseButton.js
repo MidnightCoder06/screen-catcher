@@ -49,6 +49,7 @@ function BrowseButton() {
         /*
 
         // Request made to the backend api -> Send formData object
+            // store in some Azure blob storage + in Redis (do this in the backend)
 		fetch(
 			'https://freeimage.host/api/1/upload?key=<YOUR_API_KEY>',
 			{

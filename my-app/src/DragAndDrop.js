@@ -44,7 +44,9 @@ const DragAndDrop = props => {
         let files = [...e.dataTransfer.files];
   
         if (files && files.length > 0) {
+            // map() creates a new array populated with the restults of calling a provided function on every element in the calling array
             const existingFiles = data.fileList.map(f => f.name)
+            // filter() creates a new arry with all elements that pass the test impolemented by the provided function 
             files = files.filter(f => !existingFiles.includes(f.name))
             
             dispatch({ type: 'ADD_FILE_TO_LIST', files });
@@ -53,7 +55,7 @@ const DragAndDrop = props => {
         }
         /*
         We can access the dropped files with e.dataTransfer.files. 
-        The value is an array-like object so we use the array spread syntax to convert it to a JavaScript array.
+        The value is an array-like object so we use the array spread operator syntax to convert it to a JavaScript array.
         We now need to check if there is at least one file before attempting to add it to our array of files. 
         We also make sure to not include files that are already on our fileList. 
         The dataTransfer object is cleared in preparation for the next drag-and-drop operation. 
