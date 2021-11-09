@@ -6,7 +6,9 @@ https://www.pluralsight.com/guides/uploading-files-with-reactjs
 
 import React, { useState, useEffect } from 'react';
 
-function BrowseButton() {
+const BrowseButton = (props) => {
+
+    const { setContentUploaded } = props;
 
     // selectedFile contains information on the currently picked file. -> initially, no file is selected
     const [selectedFile, setSelectedFile] = useState(null);
@@ -29,6 +31,7 @@ function BrowseButton() {
         console.log('details of the uploaded file', event.target.files[0]);
 		setSelectedFile(event.target.files[0]); // event.target.files is an object that contains the details of files selected to be uploaded
 		setIsSelected(true);
+        setContentUploaded(true);
 	};
 
 	const handleSubmission = () => {

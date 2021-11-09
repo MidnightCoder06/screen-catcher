@@ -16,9 +16,11 @@ import './DirectLink.css';
 Needs to be aware of if an image has been uploaded or not. -> via context api?
 If not then should flash red warning text that an image needs to be uploaded before you can click this
 */
-function DirectLink() {
+const DirectLink = props => {
 
-    const [contentUploaded, setContentUploaded] = useState(false);
+    const { contentUploaded } = props;
+    console.log('from direct link', contentUploaded)
+
     const [btnClicked, setBtnClicked] = useState(false) 
 
     const handleClick = () => {

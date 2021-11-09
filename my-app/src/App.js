@@ -1,4 +1,4 @@
-import React, { useReducer } from 'react';
+import React, { useReducer, useState } from 'react';
 import DragAndDrop from './DragAndDrop';
 import BrowseButton from './BrowseButton';
 import DirectLink from './DirectLink';
@@ -24,7 +24,6 @@ function App() {
     The update is performed by invoking the dispatch function returned by useReducer.
   */
 
-  // TODO: put this state management code into the drag and drop component .. and then just import it
   const reducer = (state, action) => {
     switch (action.type) {
         case 'SET_IN_DROP_ZONE':
@@ -40,10 +39,12 @@ function App() {
     reducer, { inDropZone: false, fileList: [] }
   )
 
+  const [contentUploaded, setContentUploaded] = useState(false);
+
   return (
     <div className={'app'}>
       <h1> Screen Catcher Tool </h1>
-      <DragAndDrop data={data}  dispatch={dispatch} />
+      <DragAndDrop data={data}  dispatch={dispatch} setContentUploaded={setContentUploaded} />
       <ol className={"dropped-files"}>
         {data.fileList.map(file => {
           return (
@@ -51,8 +52,8 @@ function App() {
           )
         })}
       </ol>
-      <BrowseButton />
-      <DirectLink />
+      <BrowseButton setContentUploaded={setContentUploaded} />
+      <DirectLink contentUploaded={contentUploaded} />
     </div>
   );
 }

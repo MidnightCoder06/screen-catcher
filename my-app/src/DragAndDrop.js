@@ -14,7 +14,7 @@ const DragAndDrop = props => {
     We also call stopPropagation() to make sure that the event is not propagated from child to parent elements.
     */
 
-    const { data, dispatch } = props;
+    const { data, dispatch, setContentUploaded } = props;
 
     const handleDragEnter = e => {
         e.preventDefault();
@@ -61,6 +61,8 @@ const DragAndDrop = props => {
         The dataTransfer object is cleared in preparation for the next drag-and-drop operation. 
         We also reset the values of inDropZone.
         */
+
+        setContentUploaded(true);
     };
 
   return (
