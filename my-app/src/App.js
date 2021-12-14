@@ -24,6 +24,13 @@ function App() {
     The update is performed by invoking the dispatch function returned by useReducer.
   */
 
+  /*
+    Links to some reading on the context api 
+
+    https://dev.to/olenadrugalya/managing-state-with-react-context-4h2h
+
+  */
+
   const reducer = (state, action) => {
     switch (action.type) {
         case 'SET_IN_DROP_ZONE':
