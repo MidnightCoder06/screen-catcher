@@ -1,0 +1,4 @@
+1. create new link (watch & read system design)
+2. store images in a blob database when click submit 
+3. be able to retrieve images
+4. add a sign up / log in so you can know which images to retrieve
